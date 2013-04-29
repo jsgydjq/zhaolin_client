@@ -133,7 +133,7 @@ public class NewsFeedAdapter extends ArrayAdapter<NewActionInfo> implements List
 			@Override
 			public void onClick(View v) {
 				String message = "{\"actiPrimkey\":"+actionDetail.primKey+", \"upOrDown\":0}";
-				new PostAndGetResponse().execute(ZhaolinConstants.postFollow, message);
+				new PostAndGetResponse().execute(ZhaolinConstants.postUpdownAction, message);
 				activity.showTip("Up Action " + actionDetail.primKey + " successful!");
 			}
 		});
@@ -144,7 +144,7 @@ public class NewsFeedAdapter extends ArrayAdapter<NewActionInfo> implements List
 			@Override
 			public void onClick(View v) {
 				String message = "{\"actiPrimkey\":"+actionDetail.primKey+", \"upOrDown\":1}";
-				new PostAndGetResponse().execute(ZhaolinConstants.postFollow, message);
+				new PostAndGetResponse().execute(ZhaolinConstants.postUpdownAction, message);
 				activity.showTip("Down Action " + actionDetail.primKey + " successful!");
 			}
 		});
