@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deepred.zhaolin"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+	<uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+	<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission> 
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.SECURE_WRITE_SETTINGS" />
+	
+    <application
+        android:name="com.deepred.zhaolin.ZhaolinApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:allowBackup="false" >
+		<activity
+			android:name="com.renren.api.connect.android.AuthorizationHelper$BlockActivity"
+			android:theme="@android:style/Theme.Dialog"></activity>
+		<activity android:name="com.renren.api.connect.android.status.StatusPubActivity"></activity>
+		<activity
+            android:name="com.deepred.zhaolin.ui.ShareActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.utils.CollectionActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.ui.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.ui.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.ui.NewActionActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.ui.NewShareActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.utils.UpdateUserInfo"
+            android:label="@string/app_name" >
+        </activity> 
+        <activity
+            android:name="com.deepred.zhaolin.ui.GetNewsFeedsActivity"
+            android:label="@string/app_name" >
+        </activity> 
+        <activity
+            android:name="com.deepred.zhaolin.ui.GetNearbyPeopleActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.deepred.zhaolin.ui.UserProfileActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity 
+            android:name="com.deepred.zhaolin.ui.MainActivity" 
+            android:alwaysRetainTaskState="True" 
+            android:launchMode="singleTask">
+        </activity>        
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+    </application>
+
+</manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_hint">请选择以下方式进行登录</string>
+    <string name="renren_login">人人帐号登录</string>
+    <string name="copyright">copyright 2013. Deepred Inc.</string>
+    
+    <string name="app_name">找邻</string>
+    <string name="appIcon">应用图标</string>
+    <string name="userIcon">用户头像</string>
+    <string name="action_settings">设置</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="name">找邻</string>
+	<string name="subtitle">发现身边的好玩应用</string>
+	<string name="myown">分享我自己的收藏</string>
+	<string name="type_app">应用</string>
+	<string name="nearby">我身边的收藏</string>
+	<string name="loading">努力加载中…</string>
+	<string name="btTitle">已收藏的应用</string>	
+	<string name="no_comment_hint">还木有评论，太不积极啦！</string>
+	<string name="default_status">这个人很懒，什么都没留下~</string>
+	
+</resources>

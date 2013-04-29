@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical" > 
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+   	<com.markupartist.android.widget.ActionBar
+        android:id="@+id/detailAction"
+        style="@style/ActionBar"
+    />
+   	</LinearLayout>
+   	
+   <ScrollView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/actionbar_height"> 
+   <RelativeLayout
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_marginTop="1dp">     	
+    <ImageView
+        android:id="@+id/appnail"
+       	android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:gravity="right|center_vertical"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginLeft="5dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/appnail"
+        android:orientation="vertical"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="150dp"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:textColor="#ff000000"
+            android:textSize="20sp" 
+            android:ellipsize="marquee" 
+            android:focusable="true"
+            android:paddingLeft="7dp"
+            android:text="恐龙大战僵尸"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:textSize="10sp" 
+            android:paddingLeft="9dp" 
+            android:text="56 MB"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="61dp"
+        android:background="#E8E8E7"
+        android:layout_marginLeft="3dp">
+    	<View
+    		android:layout_width="fill_parent"
+    		android:layout_height="0.7dp"
+    	    
+    		android:layout_marginLeft="3dp"
+    		android:layout_marginRight="3dp"
+    		android:background="#E8E8E8"/> 
+    	 
+    	<com.twotoasters.android.horizontalimagescroller.widget.HorizontalImageScroller
+        	android:id="@+id/scroller_androids"
+        	style="@style/ToasterHorizontalImageScroller" />   	
+        	
+   		<TextView
+   	        android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#009999"
+            android:textSize="17sp" 
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="7dp"
+            android:text="等你关注的好友们都推荐了这款应用"/>   	
+            
+    	<View
+    		android:layout_width="fill_parent"
+    		android:layout_height="0.3dp"
+    		android:layout_marginTop="3dp"
+    		android:layout_marginLeft="3dp"
+    		android:layout_marginRight="3dp"
+    		android:background="#E8E8E8"/>       
+    </LinearLayout>   
+       
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="197dp"
+        android:layout_marginLeft="3dp">    
+        
+        <TextView
+   	        android:layout_width="match_parent"
+            android:layout_height="wrap_content"           
+            android:textColor="#48C1C5"
+            android:textSize="17sp" 
+            android:text="应用详情"/>   
+            
+        <LinearLayout
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:background="#E8E8E7"
+        	android:orientation="vertical">    	
+    		<com.twotoasters.android.horizontalimagescroller.widget.HorizontalImageScroller
+        		android:id="@+id/scroller_thumbnails"
+        		style="@style/ToasterHorizontalImageScroller" />
+    	</LinearLayout>
+    	
+    	<TextView
+   	        android:layout_width="match_parent"
+            android:layout_height="wrap_content"           
+            android:textColor="#48C1C5"
+            android:textSize="15sp" 
+            android:text="应用描述:"/>
+    	
+    	<TextView
+    	    android:layout_width="match_parent"
+            android:layout_height="wrap_content"           
+            android:textColor="#ff000000"
+            android:background="#E8E8E7"
+            android:textSize="14sp" 
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="QQ阅读Android版是腾讯公司推出的一款android平台的看书软件,提供了轻松舒适的图书阅读体验,全文档格式都支持,内嵌QQ书城,特色月光宝盒,舒适读书,方便找书."
+    	    />
+    </LinearLayout> 
+    </RelativeLayout> 
+    </ScrollView>
+</RelativeLayout>

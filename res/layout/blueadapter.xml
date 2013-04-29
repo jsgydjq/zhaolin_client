@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" 
+    android:paddingLeft="5dp" 
+    android:paddingTop="5dp">
+
+    <ImageView
+        android:id="@+id/imgB"
+       	android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:gravity="right|center_vertical"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgB"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleB"
+            android:layout_width="150dp"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:textColor="#ff000000"
+            android:textSize="20sp" 
+            android:ellipsize="marquee" 
+            android:focusable="true"
+            android:paddingLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/textB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff000000"
+            android:textSize="10sp" 
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+    
+    <View
+    	android:layout_width="0dp"
+    	android:layout_height="56dp"
+    	android:layout_marginRight="91dp"
+    	android:layout_alignParentRight="true" 
+
+    	android:background="@android:color/darker_gray"/>
+    
+    <!-- View
+    	android:layout_width="0.2dp"
+    	android:layout_height="53dp"
+    	android:layout_marginRight="90dp"
+    	android:layout_alignParentRight="true" 
+
+    	android:background="@android:color/darker_gray"/>
+    
+    <Button
+        android:id="@+id/buttonB"
+        android:layout_width="28dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true" 
+        android:layout_marginRight="53dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/selector_star_true"
+        /-->
+    
+    <View
+    	android:layout_width="0.2dp"
+    	android:layout_height="53dp"
+    	android:layout_marginRight="45dp"
+    	android:layout_alignParentRight="true"
+    	android:background="@android:color/darker_gray"/>
+    
+    <Button
+        android:id="@+id/button2B"
+        android:layout_width="28dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true" 
+        android:layout_marginRight="9dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/selector_download_true" />    
+    
+    <View
+    	android:layout_width="0.2dp"
+    	android:layout_height="53dp"
+
+    	android:layout_alignParentRight="true"
+    	android:background="@android:color/darker_gray" />
+    
+</RelativeLayout>
