@@ -6,7 +6,7 @@ import com.deepred.zhaolin.BaseActivity;
 import com.deepred.zhaolin.R;
 import com.deepred.zhaolin.entity.MyAppEntity;
 import com.deepred.zhaolin.entity.NewActionInfo;
-import com.deepred.zhaolin.ui.NewActionActivity;
+import com.deepred.zhaolin.ui.PostNewActionActivity;
 import com.deepred.zhaolin.utils.FileCache;
 import com.deepred.zhaolin.utils.LoadImageTask;
 import com.deepred.zhaolin.utils.ZhaolinConstants;
@@ -94,7 +94,7 @@ public class UserNewsFeedAdapter extends ArrayAdapter<NewActionInfo> implements 
 		holder.actionContent.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, NewActionActivity.class);
+				Intent intent = new Intent(context, PostNewActionActivity.class);
 				intent.putExtra(ZhaolinConstants.APP_ENTITY, appEntity);
 				context.startActivity(intent);
 			}

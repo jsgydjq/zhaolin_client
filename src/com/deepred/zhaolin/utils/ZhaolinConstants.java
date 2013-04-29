@@ -44,6 +44,12 @@ public class ZhaolinConstants {
 	
 	public static String getUserActionBriefList = root_url + "/getUserNewsfeedList/";
 	
+	public static String postFollow = root_url + "/postFollow/";
+	
+	public static String postUpdownAction = root_url + "/postUpDownAction/";
+	
+	public static String postUpdwonApp = root_url + "/postUpDownApp";
+	
 	public static String SharedPref = "userinfo";
 
 	

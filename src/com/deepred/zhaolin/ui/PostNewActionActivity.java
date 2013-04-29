@@ -22,7 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class NewActionActivity extends BaseActivity{
+public class PostNewActionActivity extends BaseActivity{
 
 	private List<NewCommentBrief> commentList = new ArrayList<NewCommentBrief>();
 	public void onCreate(Bundle savedInstance){
@@ -33,7 +33,7 @@ public class NewActionActivity extends BaseActivity{
 		View view = inflater.inflate(R.layout.new_action, null);
 		setContentView(view);
 		initContentView(view, appEntity);
-		new NewActionTask(getMessageFromEntity(appEntity), commentList, NewActionActivity.this, view).start();
+		new NewActionTask(getMessageFromEntity(appEntity), commentList, PostNewActionActivity.this, view).start();
 	}
 
 	private void initContentView(final View view, final MyAppEntity appEntity) {
@@ -79,7 +79,7 @@ public class NewActionActivity extends BaseActivity{
 		holder.confirmButton.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				ActionUploadPackage actionPackage = new ActionUploadPackage();
-				actionPackage.userPrimkey = NewActionActivity.this.userPrimkey;
+				actionPackage.userPrimkey = PostNewActionActivity.this.userPrimkey;
 				actionPackage.appName = appEntity.getTitle();
 				actionPackage.comment = holder.commentBox.getText().toString();
 				if(actionPackage.comment.length()>0){
@@ -92,7 +92,7 @@ public class NewActionActivity extends BaseActivity{
 					Gson gson = new Gson();
 					String message = gson.toJson(actionPackage);
 					showTip(message);
-					new NewActionCommentTask(message, NewActionActivity.this, commentList, comment, view).start();
+					new NewActionCommentTask(message, PostNewActionActivity.this, commentList, comment, view).start();
 				}
 				else{
 					showTip("您还没有写评价哦~");

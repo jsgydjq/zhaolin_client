@@ -74,7 +74,7 @@ public class NewShareActivity extends BaseActivity {
 					long arg3) {
 				MyAppEntity appEntity = (MyAppEntity) listView.getItemAtPosition(arg2);
 
-				Intent intent = new Intent(NewShareActivity.this, NewActionActivity.class);
+				Intent intent = new Intent(NewShareActivity.this, PostNewActionActivity.class);
 				intent.putExtra(ZhaolinConstants.APP_ENTITY, appEntity);				
 				NewShareActivity.this.startActivity(intent);
 			}

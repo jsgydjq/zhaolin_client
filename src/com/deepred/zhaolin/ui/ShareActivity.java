@@ -117,7 +117,6 @@ public class ShareActivity extends BaseActivity {
 		});
 	}
 
-	
 	/**
 	 * @author Administrator
 	 */

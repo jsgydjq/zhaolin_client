@@ -15,8 +15,8 @@ import android.widget.Toast;
 public class BaseActivity extends Activity {
 	public static File cache;
 	public Renren renren;
-	protected String renrenId, userName, headUrl;
-	protected long userPrimkey = -1;
+	public String renrenId, userName, headUrl;
+	public long userPrimkey = -1;
 	
 	public ProgressDialog mProgressDialog;
 	

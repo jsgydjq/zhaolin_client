@@ -54,7 +54,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.deepred.zhaolin.ui.NewActionActivity"
+            android:name="com.deepred.zhaolin.ui.PostNewActionActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

@@ -4,15 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.deepred.zhaolin.R;
-import com.deepred.zhaolin.entity.MyAppEntity;
-import com.deepred.zhaolin.entity.NewActionInfo;
-import com.deepred.zhaolin.ui.NewActionActivity;
-import com.deepred.zhaolin.ui.UserProfileActivity;
-import com.deepred.zhaolin.utils.LoadImageTask;
-import com.deepred.zhaolin.utils.ZhaolinConstants;
-
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -25,17 +17,28 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.deepred.zhaolin.BaseActivity;
+import com.deepred.zhaolin.R;
+import com.deepred.zhaolin.entity.MyAppEntity;
+import com.deepred.zhaolin.entity.NewActionInfo;
+import com.deepred.zhaolin.ui.PostNewActionActivity;
+import com.deepred.zhaolin.ui.UserProfileActivity;
+import com.deepred.zhaolin.utils.LoadImageTask;
+import com.deepred.zhaolin.utils.PostAndGetResponse;
+import com.deepred.zhaolin.utils.ZhaolinConstants;
+
+@SuppressLint("SimpleDateFormat")
 public class NewsFeedAdapter extends ArrayAdapter<NewActionInfo> implements ListAdapter{
 
 	private List<NewActionInfo> list;
 	private LayoutInflater layoutInflater;
 	private Drawable drawable;
-	private Context context;
-	public NewsFeedAdapter(Context context, int textViewResourceId,
+	private BaseActivity activity;
+	public NewsFeedAdapter(BaseActivity context, int textViewResourceId,
 			List<NewActionInfo> objects) {
 		super(context, textViewResourceId, objects);
 		this.list = objects;
-		this.context = context;
+		this.activity = context;
 		layoutInflater = LayoutInflater.from(context);
 		drawable = context.getResources().getDrawable(R.drawable.icon_wait);
 	}
@@ -105,24 +108,46 @@ public class NewsFeedAdapter extends ArrayAdapter<NewActionInfo> implements List
 		holder.actionContent.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, NewActionActivity.class);
+				Intent intent = new Intent(activity, PostNewActionActivity.class);
 				intent.putExtra(ZhaolinConstants.APP_ENTITY, appEntity);
-				context.startActivity(intent);
+				activity.startActivity(intent);
 			}
 		});
 		holder.userIcon.setClickable(true);
 		holder.userIcon.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, UserProfileActivity.class);
+				Intent intent = new Intent(activity, UserProfileActivity.class);
 				intent.putExtra("UserInfo", actionDetail.userInfo);
-				context.startActivity(intent);
+				activity.startActivity(intent);
 			}
 		});
 		
 		holder.userName.setText(actionDetail.userInfo.userName);
 		holder.appName.setText(actionDetail.appInfo.appname);
 		holder.commentCount.setText("评论数: " + actionDetail.appInfo.commentCount);
+		
+		holder.upComment.setClickable(true);
+		holder.upComment.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				String message = "{\"actiPrimkey\":"+actionDetail.primKey+", \"upOrDown\":0}";
+				new PostAndGetResponse().execute(ZhaolinConstants.postFollow, message);
+				activity.showTip("Up Action " + actionDetail.primKey + " successful!");
+			}
+		});
+		
+		holder.downComment.setClickable(true);
+		holder.downComment.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				String message = "{\"actiPrimkey\":"+actionDetail.primKey+", \"upOrDown\":1}";
+				new PostAndGetResponse().execute(ZhaolinConstants.postFollow, message);
+				activity.showTip("Down Action " + actionDetail.primKey + " successful!");
+			}
+		});
 		String comment;
 		/*
 		 * actionType:
@@ -143,65 +168,9 @@ public class NewsFeedAdapter extends ArrayAdapter<NewActionInfo> implements List
 			holder.actionContent.setTextColor(Color.rgb(0, 150, 0));
 		}
 		comment += actionDetail.comment;
-		holder.actionContent.setText(comment);	
+		holder.actionContent.setText(comment);
 		
-		/*new AsyncTask<Object, String, String>(){
-
-			ViewHolder holder;
-			NewActionInfo actionDetail;
-			@Override
-			protected String doInBackground(Object... arg0) {
-				holder = (ViewHolder) arg0[0];
-				actionDetail = (NewActionInfo) arg0[1];
-				try {
-					holder.userIcon.setImageURI(FileCache.getImageURI(actionDetail.userInfo.headUrl, BaseActivity.cache));
-				} catch (Exception e) {
-					holder.userIcon.setImageDrawable(drawable);
-					
-				}
-				try {
-					holder.appIcon.setImageURI(FileCache.getImageURI(actionDetail.appInfo.icon_url, BaseActivity.cache));
-				} catch (Exception e) {
-					holder.appIcon.setImageDrawable(drawable);
-					
-				}
-				
-				
-				
-				Date date = new Date(Long.parseLong(actionDetail.timestamp));
-				holder.timeStamp.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
-				final MyAppEntity appEntity = new MyAppEntity();
-				appEntity.setTitle(actionDetail.appInfo.appname);
-				appEntity.setImgByte(drawable);
-				holder.actionContent.setClickable(true);
-				holder.actionContent.setOnClickListener(new OnClickListener(){
-					@Override
-					public void onClick(View v) {
-						Intent intent = new Intent(context, NewActionActivity.class);
-						intent.putExtra(ZhaolinConstants.APP_ENTITY, appEntity);
-						context.startActivity(intent);
-					}
-				});
-				holder.userIcon.setClickable(true);
-				holder.userIcon.setOnClickListener(new OnClickListener(){
-					@Override
-					public void onClick(View v) {
-						Intent intent = new Intent(context, UserProfileActivity.class);
-						intent.putExtra("UserInfo", actionDetail.userInfo);
-						context.startActivity(intent);
-					}
-				});
-				
-				return null;
-			}
-			
-			 @Override
-			    protected void onPostExecute(String result) {
-			        super.onPostExecute(result);
-			        
-			 }
-		}.execute(holder, actionDetail);*/
-			 
+		
 		return convertView;
 	}
 

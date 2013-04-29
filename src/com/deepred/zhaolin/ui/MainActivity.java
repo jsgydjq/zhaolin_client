@@ -286,8 +286,8 @@ public class MainActivity extends BaseActivity {
 							long[] friendidList = bean.getUids();
 							String tmp = arrayToString(friendidList);
 							String message = "{\"primkey\":" +userPrimkey+ ", \"location\":\"" +
-									ZhaolinApplication.location + ",\"friendidList\" : \"" +tmp +"\"}";
-					        showProgress();
+									ZhaolinApplication.location + "\",\"friendidList\" : \"" +tmp +"\"}";
+					        //showProgress();
 					        new PostAndGetResponse().execute(ZhaolinConstants.updateLocationUrl, message);
 						}
 					});
